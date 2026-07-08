@@ -1,7 +1,7 @@
-# Master Data Quality & Audit Report (Batches 1 - 8)
+# Master Data Quality & Audit Report (Consolidated Batches)
 
 ## Executive Summary
-This report summarizes the consolidation, data cleansing, and multi-batch quality audit across all 8 extracted ledger batches (`batch_1.csv` through `batch_5.csv`, `batch_200m2.csv`, `batch_300m2.csv`, and `batch_madzimai.csv`).
+This report summarizes the consolidation, data cleansing, and multi-batch quality audit across all extracted ledger batches.
 
 * **Total Records Analyzed:** 1280
 * **Active Records:** 1064 (83.1%)
@@ -150,6 +150,6 @@ Members owning multiple stands or family joint registrations:
 
 ## 3. Recommended Actions & Next Steps
 
-1. **Resolve Stand Conflicts:** Review multi-assigned stands (e.g. Stands 2236, 6144, 2, etc.) with physical ledger verification.
-2. **Flag Superseded Records:** Mark crossed-out duplicates (e.g. Stand 1052 in Batch 4) as superseded in the master database.
+1. **Resolve Stand Conflicts:** Review multi-assigned stands with physical ledger verification.
+2. **Flag Superseded Records:** Mark crossed-out duplicates as superseded in the master database.
 3. **Build Interactive Search Tool:** Implement Stage 3 (Interactive Web Search Dashboard) to allow instant searching and filtering of active vs crossed-out stands.
