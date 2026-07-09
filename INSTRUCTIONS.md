@@ -15,9 +15,10 @@ vevhu-data/
 │   ├── [image_1].jpg          # Original handwritten ledger page scan
 │   ├── [image_2].jpg          # Original handwritten ledger page scan
 │   └── ...
-├── master_vevhu_database.csv  # Consolidated master database of all batches (1,280 rows)
+├── master_vevhu_database.csv  # Consolidated master database of all batches (1,513 rows)
+├── master_vevhu_database.xlsx # Multi-sheet Excel workbook compiled from the CSVs
 ├── DATA_QUALITY_AUDIT_REPORT.md# Automatically generated audit report flagging anomalies
-├── consolidate_database.py    # Recursive script to compile all batches into the master CSV
+├── consolidate_database.py    # Recursive script to compile all batches into CSV & Excel formats
 ├── generate_audit_report.py   # Script to analyze conflicts, duplicate IDs, and missing values
 └── INSTRUCTIONS.md            # This documentation file
 ```
@@ -29,11 +30,11 @@ vevhu-data/
 To maintain and query the database, run the helper scripts located in the root of the repository:
 
 ### 1. Rebuild Consolidated Master Database
-To scan all subfolders and recompile the master database file (`master_vevhu_database.csv`), execute:
+To scan all subfolders and recompile the master database file (`master_vevhu_database.csv`) and the multi-sheet workbook (`master_vevhu_database.xlsx`), execute:
 ```bash
 python3 consolidate_database.py
 ```
-*This script recursively searches for `batch_*.csv` files, processes row states (Active, Crossed Out, Blank), cleans names/stands, and produces a single unified CSV file.*
+*This script recursively searches for `batch_*.csv` files, processes row states (Active, Crossed Out, Blank), cleans names/stands, and produces a single unified CSV file and a stylized Excel workbook containing individual worksheets for each batch.*
 
 ### 2. Regenerate Quality Audit Report
 To check for duplicate stands, shared IDs, or missing columns across all batches, execute:
