@@ -3,10 +3,10 @@
 ## Executive Summary
 This report summarizes the consolidation, data cleansing, and multi-batch quality audit across all extracted ledger batches.
 
-* **Total Records Analyzed:** 1513
-* **Active Records:** 1271 (84.0%)
+* **Total Records Analyzed:** 1500
+* **Active Records:** 1258 (83.9%)
 * **Crossed-Out Records:** 122 (8.1%)
-* **Blank Ledger Rows:** 120 (7.9%)
+* **Blank Ledger Rows:** 120 (8.0%)
 * **Consolidated Master Dataset:** [`master_vevhu_database.csv`](./master_vevhu_database.csv)
 
 ---
