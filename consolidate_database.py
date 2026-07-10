@@ -61,29 +61,25 @@ for b_file in batch_files:
             cleaned_cell = re.sub(r'\s+', ' ', cell_no).strip()
             
             rec = {
-                'Batch Source': batch_name,
                 'File Name': file_name,
-                'Row Index': str(idx),
-                'Stand No (Raw)': stand_no,
-                'Cleaned Stand No': cleaned_stand,
-                'Name & Surname (Raw)': name,
-                'Cleaned Name': cleaned_name,
-                'ID No (Raw)': id_no,
-                'Cleaned ID No': cleaned_id,
-                'Cell No (Raw)': cell_no,
-                'Cleaned Cell No': cleaned_cell,
+                'Stand No': cleaned_stand,
+                'Name & Surname': cleaned_name,
+                'ID No': cleaned_id,
+                'Cell No': cleaned_cell,
                 'Compliance Yes': comp_yes,
                 'Compliance No': comp_no,
                 'Comments': comments,
+                'Batch Source': batch_name,
+                'Row Index': str(idx),
                 'Record Status': status
             }
             all_records.append(rec)
             records_by_batch[batch_key].append({
                 'File Name': file_name,
-                'Stand No': stand_no,
-                'Name & Surname': name,
-                'ID No': id_no,
-                'Cell No': cell_no,
+                'Stand No': cleaned_stand,
+                'Name & Surname': cleaned_name,
+                'ID No': cleaned_id,
+                'Cell No': cleaned_cell,
                 'Compliance Yes': comp_yes,
                 'Compliance No': comp_no,
                 'Comments': comments

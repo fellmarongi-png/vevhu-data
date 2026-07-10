@@ -28,9 +28,9 @@ missing_cell = []
 for r in records:
     if r['Record Status'] == 'Blank Row':
         continue
-    st = r['Cleaned Stand No']
-    id_val = r['Cleaned ID No']
-    cell_val = r['Cleaned Cell No']
+    st = r['Stand No']
+    id_val = r['ID No']
+    cell_val = r['Cell No']
     
     if st:
         stands[st].append(r)
@@ -60,11 +60,11 @@ for st, rows in sorted(dup_stands.items(), key=lambda x: x[0]):
     primary = rows[0]
     others = rows[1:]
     
-    primary_desc = f"{primary['Cleaned Name']} (ID: `{primary['Cleaned ID No'] or 'Missing'}`, Batch: {primary['Batch Source']})"
-    others_desc = ' / '.join([f"{r['Cleaned Name']} (ID: `{r['Cleaned ID No'] or 'Missing'}`, Batch: {r['Batch Source']})" for r in others])
+    primary_desc = f"{primary['Name & Surname']} (ID: `{primary['ID No'] or 'Missing'}`, Batch: {primary['Batch Source']})"
+    others_desc = ' / '.join([f"{r['Name & Surname']} (ID: `{r['ID No'] or 'Missing'}`, Batch: {r['Batch Source']})" for r in others])
     
     statuses = [r['Record Status'] for r in rows]
-    names_set = set([r['Cleaned Name'].lower() for r in rows])
+    names_set = set([r['Name & Surname'].lower() for r in rows])
     
     if 'Crossed Out' in statuses and 'Active' in statuses:
         audit_status = "**Re-registered** (some records Crossed Out)"
@@ -80,9 +80,9 @@ for st, rows in sorted(dup_stands.items(), key=lambda x: x[0]):
 # Format ID Conflicts Table
 id_rows_md = []
 for id_val, rows in sorted(dup_ids.items(), key=lambda x: x[0]):
-    stands_assigned = ', '.join([f"Stand {r['Cleaned Stand No'] or 'Missing'} ({r['Batch Source']})" for r in rows])
-    names = ' / '.join([r['Cleaned Name'] for r in rows])
-    names_set = set([r['Cleaned Name'].lower() for r in rows])
+    stands_assigned = ', '.join([f"Stand {r['Stand No'] or 'Missing'} ({r['Batch Source']})" for r in rows])
+    names = ' / '.join([r['Name & Surname'] for r in rows])
+    names_set = set([r['Name & Surname'].lower() for r in rows])
     
     if len(names_set) == 1:
         notes = "**Multi-Stand Owner** or Duplicate Record"
