@@ -3,17 +3,17 @@
 ## Executive Summary
 This report summarizes the consolidation, data cleansing, and multi-batch quality audit across all extracted ledger batches.
 
-* **Total Records Analyzed:** 1500
-* **Active Records:** 1258 (83.9%)
-* **Crossed-Out Records:** 122 (8.1%)
-* **Blank Ledger Rows:** 120 (8.0%)
+* **Total Records Analyzed:** 1640
+* **Active Records:** 1346 (82.1%)
+* **Crossed-Out Records:** 136 (8.3%)
+* **Blank Ledger Rows:** 158 (9.6%)
 * **Consolidated Master Dataset:** [`master_vevhu_database.csv`](./master_vevhu_database.csv)
 
 ---
 
 ## 1. Multi-Batch Deduplication Audit
 
-### A. Stand Number Conflicts (136 Instances)
+### A. Stand Number Conflicts (139 Instances)
 Stands assigned to multiple records or re-registered across batches:
 
 | Cleaned Stand No | Primary Record | Secondary / Duplicate Record | Audit Status |
@@ -138,6 +138,9 @@ Stands assigned to multiple records or re-registered across batches:
 | **6340** | Memory Chandengenda (ID: `47-233122 Z 47`, Batch: batch_200m2.csv) | Gabriel F Akupangani (ID: `50-067934 R 50`, Batch: batch_4.csv) | Dual Registration |
 | **6372** | Nyarai M Mwanda (ID: `71-080664D71`, Batch: batch_200m2_7july_2026.csv) | Lytan Kumbula (ID: `47-091963D47`, Batch: batch_200m2_7july_2026.csv) | Dual Registration |
 | **6416** | Elvis Sombarashama (ID: `71-113190U71`, Batch: batch_200m2_8july_2026.csv) | ONEKAI GATSI (ID: `45-129479 R 15`, Batch: batch_madzimai.csv) | Dual Registration |
+| **6510** | Pauline Gondo (ID: `63-1251628 S 63`, Batch: batch_200m2_8july_2026.csv) | Pauline Gondo (ID: `63-125162 Y 63`, Batch: batch_sat_work_madzimai.csv) | **Re-registered** (some records Crossed Out) |
+| **6565** | Maidei Mugeva (ID: `63-131976 N85`, Batch: batch_sat_work_madzimai.csv) | Maidei Mugova (ID: `63.131976 N85`, Batch: batch_sat_work_madzimai.csv) | Dual Registration |
+| **701** | Phillip Seremani (ID: `63-728953 A 80`, Batch: batch_200m2_8july_2026.csv) | Phillip Pauline Seremani (ID: `63-728953 A 80`, Batch: batch_sat_work_madzimai.csv) | **Re-registered** (some records Crossed Out) |
 | **723** | Gertrude Chaitezvi (ID: `63-552322K32`, Batch: batch_200m2_8july_2026.csv) | Joyce Mukonya (ID: `75-490864L75`, Batch: batch_3.csv) | Dual Registration |
 | **785** | DAVID MURONZA (ID: `71-055309 F 71`, Batch: batch_1.csv) | Constantine Muzanenhamo (ID: `63-1217797 A 77`, Batch: batch_200m2.csv) | Dual Registration |
 | **788** | Richard Magorosi (ID: `Missing`, Batch: batch_3.csv) | Tichaona / Karindi (ID: `63-771918Y49`, Batch: batch_300m2.csv) | Dual Registration |
@@ -166,12 +169,14 @@ Members owning multiple stands or family joint registrations:
 | `34-103771Q34` | Cephas Manyemba / Cephas Manyemba | Stand 2904 (batch_200m2_7july_2026.csv), Stand 2208 (batch_5.csv) | **Multi-Stand Owner** or Duplicate Record |
 | `47-229592 M 47` | Alfred Mutihwana / Alfred Mutihwana | Stand 2798 (batch_300m2_7july_2026.csv), Stand 2798 (batch_300m2_7july_2026.csv) | **Multi-Stand Owner** or Duplicate Record |
 | `63-1046107 F 75` | Morgan Sekai / Sekai Morgan | Stand 1463 (batch_200m2.csv), Stand 1564 (batch_200m2_7july_2026.csv) | Family Joint / Shared ID Registration |
+| `63-1088548M75` | Tanaka Murewa / Tanaka Mrewa | Stand 1181 (batch_200m2_7july_2026.csv), Stand Missing (batch_sat_work_kambarami.csv) | Family Joint / Shared ID Registration |
 | `63-1211882 V 18` | TICHAONA T NOORO / TICHAOMA T NDORO | Stand 922 (batch_200m2_7july_2026.csv), Stand 1339 (batch_200m2_7july_2026.csv) | Family Joint / Shared ID Registration |
 | `63-1280776F77` | Paul & Fungisai Samakanda / Zindonda / Paul & Fungisai Samakanda / Zindonda | Stand 2622 (batch_3.csv), Stand 2623 (batch_3.csv) | **Multi-Stand Owner** or Duplicate Record |
 | `63-1307832P77` | Gibson Chinyopera / Gibson Chinyopera | Stand 937 (batch_300m2.csv), Stand 937 (batch_300m2.csv) | **Multi-Stand Owner** or Duplicate Record |
 | `63-1378736 J 63` | Sekai Marizanye / Sekai Marizani | Stand 2911 (batch_300m2.csv), Stand 2911 (batch_300m2.csv) | Family Joint / Shared ID Registration |
 | `63-1419659Q80` | Primrose Machakanja / Primrose Machakanja | Stand uk 3081 (batch_200m2_7july_2026.csv), Stand 3087 (batch_200m2_8july_2026.csv) | **Multi-Stand Owner** or Duplicate Record |
 | `63-1467030F85` | Godknows Godknows / Tirivenhamo / Godknows Tirivenhamo | Stand Missing (batch_5.csv), Stand Missing (batch_5.csv) | Family Joint / Shared ID Registration |
+| `63-728953 A 80` | Phillip Seremani / Phillip Pauline Seremani | Stand 701 (batch_200m2_8july_2026.csv), Stand 701 (batch_sat_work_madzimai.csv) | Family Joint / Shared ID Registration |
 | `63-833409 P 63` | Charles Mtoso / Charles Mtoso | Stand Missing (batch_300m2_7july_2026.csv), Stand Kambarami (batch_300m2_7july_2026.csv) | **Multi-Stand Owner** or Duplicate Record |
 | `68-044052 A 68` | Cephas Chuceno / Cephas Chikano | Stand 2787 (batch_200m2_8july_2026.csv), Stand 2787 (batch_300m2_8july_2026.csv) | Family Joint / Shared ID Registration |
 | `83-087537P83` | Elson Tazvitya / Elson Tazvitya | Stand 2698 (batch_5.csv), Stand 2698 (batch_5.csv) | **Multi-Stand Owner** or Duplicate Record |
