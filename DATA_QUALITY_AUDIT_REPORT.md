@@ -3,21 +3,22 @@
 ## Executive Summary
 This report summarizes the consolidation, data cleansing, and multi-batch quality audit across all extracted ledger batches.
 
-* **Total Records Analyzed:** 1640
-* **Active Records:** 1346 (82.1%)
-* **Crossed-Out Records:** 136 (8.3%)
-* **Blank Ledger Rows:** 158 (9.6%)
+* **Total Records Analyzed:** 1737
+* **Active Records:** 1435 (82.6%)
+* **Crossed-Out Records:** 137 (7.9%)
+* **Blank Ledger Rows:** 165 (9.5%)
 * **Consolidated Master Dataset:** [`master_vevhu_database.csv`](./master_vevhu_database.csv)
 
 ---
 
 ## 1. Multi-Batch Deduplication Audit
 
-### A. Stand Number Conflicts (139 Instances)
+### A. Stand Number Conflicts (165 Instances)
 Stands assigned to multiple records or re-registered across batches:
 
 | Cleaned Stand No | Primary Record | Secondary / Duplicate Record | Audit Status |
 | :--- | :--- | :--- | :--- |
+| **0** | MUKUME RAYMOND (ID: `42-158947R42`, Batch: batch_mr_magama_names.csv) | DUBE LUCKY LEOPOLD (ID: `63-1186070W13`, Batch: batch_mr_magama_names.csv) / MANYARARA NYARADZAI (ID: `43-025532G50`, Batch: batch_mr_magama_names.csv) / PAZA ERNEST (ID: `63-1286596G24`, Batch: batch_mr_magama_names.csv) / MAHATI ALLEN EDWARD (ID: `75-310091T75`, Batch: batch_mr_magama_names.csv) / SAKWE DENZEL (ID: `32-228421R61`, Batch: batch_mr_magama_names.csv) / SAKWE DENZEL (ID: `32-228421R61`, Batch: batch_mr_magama_names.csv) / GAHADZIKWA NELIA CHARITY (ID: `59-030818G47`, Batch: batch_mr_magama_names.csv) / MUKWASI TAKUNDA (ID: `43-2002251N07`, Batch: batch_mr_magama_names.csv) / ZHANDE SIMBARASHE (ID: `07-175340G07`, Batch: batch_mr_magama_names.csv) / VAVIRAI SYLVIA (ID: `63-1420950T27`, Batch: batch_mr_magama_names.csv) / JOBOLINGO ROSEMARY (ID: `45-212853E45`, Batch: batch_mr_magama_names.csv) / CHITIGA PORTIA (ID: `63-965769J32`, Batch: batch_mr_magama_names.csv) / KAMBARAMI SHANTEL (ID: `80-2006742H07`, Batch: batch_mr_magama_names.csv) / KURIMA BRIDGET (ID: `62-2731729D15`, Batch: batch_mr_magama_names.csv) | **Multi-Assignment Conflict** (15 occupants) |
 | **1037** | Chipo Muzama (ID: `86-065008W86`, Batch: batch_200m2_8july_2026.csv) | Evance Tozano (ID: `41-122081U47`, Batch: batch_200m2_8july_2026.csv) | Dual Registration |
 | **1052** | Wellmah Gamanya (ID: `15-128978 Q 15`, Batch: batch_1.csv) | Beatre Ciati (ID: `63-877786 Q 63`, Batch: batch_4.csv) | **Re-registered** (some records Crossed Out) |
 | **1121** | Wellington Njowa (ID: `63-996879 Z 18`, Batch: batch_200m2.csv) | Chipo Ndoro (ID: `63-1332352R07`, Batch: batch_200m2_8july_2026.csv) | Dual Registration |
@@ -34,17 +35,20 @@ Stands assigned to multiple records or re-registered across batches:
 | **1617** | Colin Chikutirgwe (ID: `63-925316 F 34`, Batch: batch_1.csv) | Dickson Chigariro (ID: `63-122635 Y 18`, Batch: batch_200m2.csv) | Dual Registration |
 | **1620** | Farai Gondo (ID: `27-210318927`, Batch: batch_200m2_7july_2026.csv) | Everisto Bbachora (ID: `47-101249J47`, Batch: batch_200m2_8july_2026.csv) | Dual Registration |
 | **1654** | Osward Chiworeso (ID: `47-138059 V 47`, Batch: batch_200m2.csv) | Kudzanai Annamore / Mahenga Chibenga (ID: `63-138478 Z 43 / 22-270301 Y 75`, Batch: batch_200m2_7july_2026.csv) | Dual Registration |
+| **1666** | Donald Madamamombe (ID: `63-1465542N47`, Batch: batch_3.csv) | RIMAYI FITZGERALD TENDAI (ID: `63-1078762A42`, Batch: batch_mr_magama_names.csv) | Dual Registration |
 | **1684** | Luke Madamombe (ID: `0`, Batch: batch_1.csv) | Chipo Murima (ID: `23-029528V23`, Batch: batch_200m2_8july_2026.csv) | Dual Registration |
-| **1710** | Portia Mhaka (ID: `63-145144 I 26`, Batch: batch_200m2_8july_2026.csv) | Portia Mhaka (ID: `63-145144H26`, Batch: batch_300m2.csv) | **Exact Duplicate Entry** |
+| **1710** | Portia Mhaka (ID: `63-145144 I 26`, Batch: batch_200m2_8july_2026.csv) | Portia Mhaka (ID: `63-145144H26`, Batch: batch_300m2.csv) / MHAKA PORTIA (ID: `63-1451441L26`, Batch: batch_mr_magama_names.csv) | **Multi-Assignment Conflict** (3 occupants) |
 | **1780** | Grace Sagara (ID: `63-1237241K34`, Batch: batch_3.csv) | Owen Matenda (ID: `13-170002T13`, Batch: batch_5.csv) | Dual Registration |
 | **1830** | Mabbie Sedze (ID: `34-056376 P 34`, Batch: batch_1.csv) | Patrick chando (ID: `07-108658 B 07`, Batch: batch_4.csv) | Dual Registration |
 | **1951** | Diymus Mandinenga (ID: `42-194709 N 42`, Batch: batch_200m2.csv) | Didymus Mandivenga (ID: `42-194709N42`, Batch: batch_200m2_7july_2026.csv) | Dual Registration |
 | **1962** | Maria Willard (ID: `63-1042470 C 63`, Batch: batch_200m2.csv) | Kudakwashe Shambamuto (ID: `63-914885 A 32`, Batch: batch_200m2_7july_2026.csv) / Kudakwashe Shambamuto (ID: `63-1585140 L 32`, Batch: batch_200m2_7july_2026.csv) | **Re-registered** (some records Crossed Out) |
+| **1975** | Chengerayi C Rimayi (ID: `63-125546 N 42`, Batch: batch_200m2_8july_2026.csv) | RIMAYI CHENGETAYI C (ID: `63-125546N42`, Batch: batch_mr_magama_names.csv) | Dual Registration |
 | **1976** | Aman White Abudula (ID: `63-1640867 J 63`, Batch: batch_200m2.csv) | Zgoriri Tamai (ID: `38-189033 S 38`, Batch: batch_200m2.csv) | Dual Registration |
 | **2024** | Prescious Mango (ID: `86-037309 Q 86`, Batch: batch_200m2.csv) | Jacob & Melody Chitaitai & Mapako (ID: `42-229243A42`, Batch: batch_3.csv) | Dual Registration |
 | **2028** | Fanwell Murenga (ID: `38-057238 M 38`, Batch: batch_200m2.csv) | JUSTICE SHAYAMANO (ID: `63-1321916 J 18`, Batch: batch_200m2_7july_2026.csv) / Justice Mushayamano (ID: `63-1321916 Y 18`, Batch: batch_200m2_7july_2026.csv) | **Multi-Assignment Conflict** (3 occupants) |
 | **2155** | Eddmore Masinire (ID: `63-1311460H32`, Batch: batch_5.csv) | James Chidhimira (ID: `22-145205Z22`, Batch: batch_5.csv) | Dual Registration |
 | **2169** | Maggie Chigoya (ID: `Missing`, Batch: batch_200m2_7july_2026.csv) | Tawanda Shava (ID: `63-1017121Z26`, Batch: batch_300m2.csv) | Dual Registration |
+| **2186** | Lydia Mushangwe (ID: `25-117533 Q 42`, Batch: batch_300m2_8july_2026.csv) | USHEWEKUNZE KNOWLEDGE I (ID: `63-2248381A70`, Batch: batch_mr_magama_names.csv) | Dual Registration |
 | **2195** | Benedict Chilekeshe (ID: `63-423762W42`, Batch: batch_200m2_7july_2026.csv) | Rumbidzai A Janda (ID: `59-111719 L07`, Batch: batch_300m2_7july_2026.csv) | Dual Registration |
 | **2207** | Phillip M Denhere (ID: `63-1352039 Q 11`, Batch: batch_1.csv) | CHIPO B ZHOU (ID: `38-241009 N 38`, Batch: batch_200m2_7july_2026.csv) / SEVERA CHIMONYO (ID: `634-096039 L 34`, Batch: batch_200m2_7july_2026.csv) | **Multi-Assignment Conflict** (3 occupants) |
 | **2208** | Vengai Mazivise (ID: `63-1191877B04`, Batch: batch_200m2_7july_2026.csv) | Noah CHINDA (ID: `63-157575 K50`, Batch: batch_300m2_7july_2026.csv) / Cephas Manyemba (ID: `34-103771Q34`, Batch: batch_5.csv) | **Re-registered** (some records Crossed Out) |
@@ -58,6 +62,7 @@ Stands assigned to multiple records or re-registered across batches:
 | **2229** | Patience Pindura (ID: `63-106525F18`, Batch: batch_200m2_8july_2026.csv) | Ronald and Simamgaliso Murambiranwa (ID: `47-117385 Y 47 / 86-018889 R 86`, Batch: batch_300m2_8july_2026.csv) | Dual Registration |
 | **2231** | Florence Nhete (ID: `63-102360 5 X 63`, Batch: batch_200m2_7july_2026.csv) | Issiah Mukodza (ID: `50-053056V50`, Batch: batch_300m2.csv) | Dual Registration |
 | **2232** | Christopher Chiwandire (ID: `49-035288A49`, Batch: batch_200m2_7july_2026.csv) | Margret / Manyundwa (ID: `22-274349y 40 / J04`, Batch: batch_300m2.csv) | **Re-registered** (some records Crossed Out) |
+| **2233** | Wilson Gomo (ID: `24-1501169Z24`, Batch: batch_200m2_7july_2026.csv) | KAGORO TENDAI (ID: `63-2188241F48`, Batch: batch_mr_magama_names.csv) | Dual Registration |
 | **2234** | Emelda Chopandu (ID: `63-1478641 B 63`, Batch: batch_200m2.csv) | Nyembesi Tirhire (ID: `12-065264R12`, Batch: batch_3.csv) | Dual Registration |
 | **2235** | Melody Chiwara (ID: `27-201088Z27 / 27-2010558Z27`, Batch: batch_3.csv) | Phillis Nyamadzawo (ID: `63-110214 H 18`, Batch: batch_300m2_8july_2026.csv) | Dual Registration |
 | **2236** | Chipo Chivege (ID: `25-111973 X80`, Batch: batch_2.csv) | Timothy Muvengwa (ID: `18-034369Z18`, Batch: batch_3.csv) / Philemon Mudhimbo (ID: `71-0445392Z71`, Batch: batch_5.csv) | **Multi-Assignment Conflict** (3 occupants) |
@@ -69,14 +74,20 @@ Stands assigned to multiple records or re-registered across batches:
 | **2247** | Dorica Chinounye (ID: `27-182960V27`, Batch: batch_200m2_8july_2026.csv) | George Mutsago (ID: `75-261049M75`, Batch: batch_200m2_8july_2026.csv) | Dual Registration |
 | **2255** | Ivyjoy Bingwa (ID: `63-2189335 V 27`, Batch: batch_200m2.csv) | Jonh Mushakavanhu (ID: `08-261535D07`, Batch: batch_5.csv) | Dual Registration |
 | **2258** | KENETH SAKWE (ID: `63-1486939 W 61`, Batch: batch_200m2_7july_2026.csv) | Deliwe Matsi (ID: `63-8331237D63`, Batch: batch_5.csv) | Dual Registration |
+| **2263** | Robert Masawi (ID: `32-132559T32`, Batch: batch_3.csv) | MASAWI ROBERT (ID: `Missing`, Batch: batch_mr_magama_names.csv) | Dual Registration |
+| **2265** | Petronella Nyafunswe (ID: `07-1622B07`, Batch: batch_200m2_7july_2026.csv) | SHATO WILLARD (ID: `Missing`, Batch: batch_mr_magama_names.csv) / ASIMANI BIGBOY (ID: `42-273298L42`, Batch: batch_mr_magama_names.csv) | **Multi-Assignment Conflict** (3 occupants) |
+| **2266** | Enert Kashira (ID: `27-175204P27`, Batch: batch_3.csv) | KWASHIRA ERNEST (ID: `Missing`, Batch: batch_mr_magama_names.csv) | Dual Registration |
 | **2273** | EDNAH Chipezaani (ID: `32-170273 M32`, Batch: batch_2.csv) | Zulectzo Willard Mangana (ID: `45-139441 U 45`, Batch: batch_200m2.csv) | Dual Registration |
 | **2285** | Peter Nyamungama (ID: `34-082844 F 34`, Batch: batch_200m2_8july_2026.csv) | Peter Nyamungoma (ID: `Missing`, Batch: batch_3.csv) | Dual Registration |
+| **2289** | MARGARET RAMPAPAHGATWA (ID: `42-177724 B 42`, Batch: batch_200m2_7july_2026.csv) | KWETEZA WILLIE (ID: `63-699357F63`, Batch: batch_mr_magama_names.csv) | Dual Registration |
 | **2290** | Takawiro Madamombe (ID: `45-124403 N 45`, Batch: batch_1.csv) | SHERYL GWAVAVA (ID: `68-2806586 R 18`, Batch: batch_200m2_7july_2026.csv) | Dual Registration |
 | **2291** | Patrcic Chilukwe (ID: `42-230432 S 42`, Batch: batch_1.csv) | Media Karosawa (ID: `47-106772 M 47`, Batch: batch_200m2.csv) | Dual Registration |
 | **2297** | Mercland Mundanga (ID: `63-1337541 S 27`, Batch: batch_200m2.csv) | Miriam Kamota (ID: `68-074753 W 68`, Batch: batch_4.csv) | Dual Registration |
 | **2344** | Queenton Chawuya (ID: `63-147166 S T 63`, Batch: batch_200m2.csv) | Morris Mangezi (ID: `63-338238H75`, Batch: batch_200m2_8july_2026.csv) | Dual Registration |
+| **2346** | William Charakupa (ID: `42-115115 Y42`, Batch: batch_2.csv) | CHARAKUPA WILLIAM (ID: `42-115115Y42`, Batch: batch_mr_magama_names.csv) | Dual Registration |
 | **2362** | Gibson Mushango (ID: `24-085436W24`, Batch: batch_300m2.csv) | Eunice Chamburuka (ID: `63-535085 Z 71`, Batch: batch_300m2_7july_2026.csv) | Dual Registration |
 | **2376** | Richard Shambamuto (ID: `63-914885 A32`, Batch: batch_300m2_7july_2026.csv) | TAURAI MUTONHODZA (ID: `63-1415941 Z 83`, Batch: batch_4.csv) | Dual Registration |
+| **2381** | INNOCENT MEDI (ID: `47-182717 L 47`, Batch: batch_200m2_7july_2026.csv) | CHIKWATURE MANASE (ID: `70-219261H80`, Batch: batch_mr_magama_names.csv) | Dual Registration |
 | **2382** | Vanessa Tizda (ID: `63-1166401K63`, Batch: batch_200m2_8july_2026.csv) | Mark Bangamuseve (ID: `32-082475 E 32`, Batch: batch_300m2_7july_2026.csv) | Dual Registration |
 | **2394** | Tafadzwa Kapanga (ID: `48-073033W49`, Batch: batch_200m2_8july_2026.csv) | EBPhania Mabhante (ID: `79-034964T26`, Batch: batch_5.csv) | Dual Registration |
 | **2400** | Aaron Mudhimbu (ID: `71-051300 J 71`, Batch: batch_200m2.csv) | Laron Sabola (ID: `63-991375 R 63`, Batch: batch_200m2.csv) | Dual Registration |
@@ -88,6 +99,7 @@ Stands assigned to multiple records or re-registered across batches:
 | **2426** | Tstitsi Muzonda (ID: `42-129074 W 44`, Batch: batch_200m2_7july_2026.csv) | Tebithar Evidance Saunyama / Zinge Sanga (ID: `63-1510706E85 / 63-1547114D42`, Batch: batch_300m2.csv) | Dual Registration |
 | **2464** | Gariat Mupiro & Zione Bhulaimu Zione Bhulaimu (ID: `15-132518 N 42 / 68-060184 K 68`, Batch: batch_2.csv) | Samuel Musariwa (ID: `27-140086S27`, Batch: batch_300m2.csv) | **Re-registered** (some records Crossed Out) |
 | **2491** | Crispen Tigere (ID: `32-190449 S 86`, Batch: batch_200m2.csv) | Crispen Tigere (ID: `32-190144 9 S 80`, Batch: batch_300m2.csv) | **Exact Duplicate Entry** |
+| **2498** | Farai Mihovo (ID: `27-023644 A27`, Batch: batch_300m2_7july_2026.csv) | MUHOVO FARAI (ID: `27-023644A27`, Batch: batch_mr_magama_names.csv) | Dual Registration |
 | **2599** | Tendai Baera (ID: `63-1077950 S 70`, Batch: batch_300m2_7july_2026.csv) | Hilary V Sazunza (ID: `63-849478 F 24`, Batch: batch_4.csv) | Dual Registration |
 | **2613** | Fred Alice Laderera (ID: `27-152247L27`, Batch: batch_3.csv) | Lazarus Jim (ID: `48-160132T48`, Batch: batch_5.csv) | **Re-registered** (some records Crossed Out) |
 | **2648** | Delois Zindoga (ID: `18-089451 W 18`, Batch: batch_200m2.csv) | Nyanyiwa Katsa (ID: `49-032416 O 49`, Batch: batch_300m2_7july_2026.csv) | Dual Registration |
@@ -95,12 +107,15 @@ Stands assigned to multiple records or re-registered across batches:
 | **2659** | Prisca Mupandawana (ID: `29-290230F27`, Batch: batch_200m2_8july_2026.csv) | Shingirai Nyamukura (ID: `50-091445X50`, Batch: batch_300m2.csv) | Dual Registration |
 | **2660** | Edmore Marapira (ID: `63-1169157F42`, Batch: batch_300m2.csv) | Phillip Nyamuchira (ID: `45-073091 P 45`, Batch: batch_300m2_7july_2026.csv) | Dual Registration |
 | **2673** | Nesbert Mhere (ID: `63-1409906P22`, Batch: batch_200m2_7july_2026.csv) | Patronella Ndengwe (ID: `63-921388P44`, Batch: batch_200m2_8july_2026.csv) | Dual Registration |
+| **2676** | Munashe Kundishora (ID: `63-152930H43`, Batch: batch_300m2.csv) | NYEREYEMHUKA ELIZABETH (ID: `Missing`, Batch: batch_mr_magama_names.csv) | Dual Registration |
 | **2680** | Cecilia Mutemasango (ID: `86-059116R86`, Batch: batch_200m2_7july_2026.csv) | CECILIA MUTEMASANGO (ID: `86-059116 R 86`, Batch: batch_200m2_7july_2026.csv) | **Re-registered** (some records Crossed Out) |
+| **2694** | Heighten Chinofura (ID: `85-003731J85`, Batch: batch_200m2_7july_2026.csv) | CHINOFURA HIGHTON (ID: `85-003731J85`, Batch: batch_mr_magama_names.csv) | Dual Registration |
 | **2695** | Gurure Takaitei (ID: `47-087000 W 85`, Batch: batch_2.csv) | Onismore. Matariranwe (ID: `74-071550y77`, Batch: batch_300m2.csv) | Dual Registration |
 | **2698** | Elson Tazvitya (ID: `83-087537P83`, Batch: batch_5.csv) | Elson Tazvitya (ID: `83-087537P83`, Batch: batch_5.csv) | **Exact Duplicate Entry** |
 | **2703** | Chamunorwa Muzanenhamo (ID: `24-099430g24`, Batch: batch_200m2_7july_2026.csv) | Herbert Tobias Hwachi (ID: `63-2030676S27`, Batch: batch_200m2_8july_2026.csv) / Delynn Garikai (ID: `59-009699B43`, Batch: batch_300m2.csv) | **Multi-Assignment Conflict** (3 occupants) |
 | **2730** | Tafadzwa Hwingwiri (ID: `27-1365*13 J 27`, Batch: batch_300m2_7july_2026.csv) | Solomon Kufa (ID: `07-132484 Z 07`, Batch: batch_300m2_8july_2026.csv) | Dual Registration |
 | **2743** | Aman Ndengu (ID: `80-036450J80`, Batch: batch_200m2_7july_2026.csv) | Sandra T Jerekete (ID: `63-122499O44`, Batch: batch_3.csv) | Dual Registration |
+| **2766** | GOMO DOMINIC (ID: `08-193633X07`, Batch: batch_mr_magama_names.csv) | NYAMUTOWA MAURICE (ID: `34-039973V34`, Batch: batch_mr_magama_names.csv) | Dual Registration |
 | **2768** | Godknows Mafararikwa (ID: `75-339044 P75`, Batch: batch_2.csv) | Locadia Muzorori (ID: `27-183209Q27`, Batch: batch_200m2_8july_2026.csv) | Dual Registration |
 | **2772** | Samson Kayerenga (ID: `11-056079 B 71`, Batch: batch_200m2_7july_2026.csv) | Samson Kayerenga (ID: `11-056079R71`, Batch: batch_200m2_7july_2026.csv) / James Makahwi (ID: `63-1178863 F 75`, Batch: batch_300m2_7july_2026.csv) | **Multi-Assignment Conflict** (3 occupants) |
 | **2782** | Francis Chiumba (ID: `04-116609Z04`, Batch: batch_200m2_8july_2026.csv) | Taurai Mahlebacza (ID: `47-155265X47`, Batch: batch_300m2.csv) | Dual Registration |
@@ -114,21 +129,26 @@ Stands assigned to multiple records or re-registered across batches:
 | **2802** | NEVER NGANDA (ID: `34-096189 Z 34`, Batch: batch_1.csv) | Tafadzwa Y Magaya (ID: `63-1355021 Y 80`, Batch: batch_200m2_7july_2026.csv) | Dual Registration |
 | **2822** | LOT RASEKE (ID: `63-2306027 J 15`, Batch: batch_1.csv) | Benard nyatondo (ID: `75-201330m42`, Batch: batch_300m2.csv) | Dual Registration |
 | **2831** | Nyasha Machingauta / Nyakuma (ID: `08-888640P71`, Batch: batch_3.csv) | Nyasha Nyahumba (ID: `08-88864 P 71 / 63-`, Batch: batch_300m2_7july_2026.csv) | Dual Registration |
-| **2832** | Rosemary nyamuba (ID: `50-10760750P`, Batch: batch_300m2.csv) | Rosemary Nyamuba (ID: `50-167607 P 50`, Batch: batch_300m2_8july_2026.csv) | **Exact Duplicate Entry** |
+| **2832** | Rosemary nyamuba (ID: `50-10760750P`, Batch: batch_300m2.csv) | Rosemary Nyamuba (ID: `50-167607 P 50`, Batch: batch_300m2_8july_2026.csv) / KAMBARAMI TAFADZWA (ID: `63-1349407E07`, Batch: batch_mr_magama_names.csv) | **Multi-Assignment Conflict** (3 occupants) |
 | **2835** | Genicus N Muriritirwo (ID: `63-2796763 S 18`, Batch: batch_2.csv) | Spiwe G MACHINSAUTA (ID: `63-1073217 Y 80`, Batch: batch_300m2_7july_2026.csv) | Dual Registration |
 | **2852** | JELLY NYAMWANDURA (ID: `48-063431 J 48`, Batch: batch_200m2_7july_2026.csv) | Job Grese (ID: `71-147566 K 18`, Batch: batch_300m2_7july_2026.csv) | **Re-registered** (some records Crossed Out) |
 | **2858** | Joseph Mahlahla (ID: `63-1075967 M 44`, Batch: batch_2.csv) | Muchaneta Muvunde (ID: `63-624791W22`, Batch: batch_3.csv) / Cleopatra Chilcerema (ID: `63-120376 S54`, Batch: batch_300m2_7july_2026.csv) | **Multi-Assignment Conflict** (3 occupants) |
+| **2863** | Riocon Kapand/amurongo (ID: `63-595154 R 63`, Batch: batch_300m2_7july_2026.csv) | MOYO SITHULISIWE (ID: `03-038508A03`, Batch: batch_mr_magama_names.csv) | Dual Registration |
+| **2873** | Wellington Mandaza (ID: `15-152114N15`, Batch: batch_200m2_8july_2026.csv) | JOKONIYA TALENT (ID: `Missing`, Batch: batch_mr_magama_names.csv) | Dual Registration |
 | **2902** | Josphat Chuma (ID: `07-070307Q07`, Batch: batch_200m2_8july_2026.csv) | Josphat Chuma (ID: `07-070307 Q 07`, Batch: batch_300m2_8july_2026.csv) | **Re-registered** (some records Crossed Out) |
-| **2911** | Sekai Marizanye (ID: `63-1378736 J 63`, Batch: batch_300m2.csv) | Sekai Marizani (ID: `63-1378736 J 63`, Batch: batch_300m2.csv) | Dual Registration |
-| **2912** | Willard Mundangowa (ID: `63-766369 V 62`, Batch: batch_200m2.csv) | Tafadzwa (e) Rimayi Tsuangia (ID: `63-1190783 M 58`, Batch: batch_200m2_8july_2026.csv) | Dual Registration |
+| **2911** | Sekai Marizanye (ID: `63-1378736 J 63`, Batch: batch_300m2.csv) | Sekai Marizani (ID: `63-1378736 J 63`, Batch: batch_300m2.csv) / GWAZE SARUDZAI (ID: `48-082926Z48`, Batch: batch_mr_magama_names.csv) | **Multi-Assignment Conflict** (3 occupants) |
+| **2912** | Willard Mundangowa (ID: `63-766369 V 62`, Batch: batch_200m2.csv) | Tafadzwa (e) Rimayi Tsuangia (ID: `63-1190783 M 58`, Batch: batch_200m2_8july_2026.csv) / TSVANGIRA RIMAYI TAFADZWA (ID: `63-1190783M58`, Batch: batch_mr_magama_names.csv) | **Multi-Assignment Conflict** (3 occupants) |
 | **2930** | Linet Tsikirayi (ID: `63-1398051 F 27`, Batch: batch_200m2.csv) | Lucky Dube (ID: `63-1186030W13`, Batch: batch_200m2_8july_2026.csv) | Dual Registration |
 | **3002** | Lowencia Duvu (ID: `48-258456 G 58`, Batch: batch_200m2.csv) | Taurai Kupara (ID: `63-1539424 V 42`, Batch: batch_4.csv) | Dual Registration |
 | **3050** | Edson Mugachi (ID: `42-215828 T 42`, Batch: batch_200m2_7july_2026.csv) | Brighton Chamboko (ID: `49-055333N49`, Batch: batch_200m2_7july_2026.csv) | Dual Registration |
+| **3054** | Alice kudzin (ID: `Missing`, Batch: batch_200m2.csv) | GWEZERE ALICE LOVENESS (ID: `22-263880T42`, Batch: batch_mr_magama_names.csv) | Dual Registration |
 | **3100** | Tapiwa Baiso (ID: `75-377837 F 75`, Batch: batch_200m2.csv) | Tapiwo Baiso (ID: `75-377837F75`, Batch: batch_300m2.csv) | Dual Registration |
 | **3272** | Tongai Kundishora (ID: `32-152480 X 32`, Batch: batch_200m2_8july_2026.csv) | Bothwell Marwodzi (ID: `04-153529 E 04`, Batch: batch_200m2_8july_2026.csv) | Dual Registration |
+| **3274** | Arthur Kamikwala (ID: `71-089998L71`, Batch: batch_200m2_8july_2026.csv) | MAGEJO EVERET (ID: `48-113608Z48`, Batch: batch_mr_magama_names.csv) | Dual Registration |
+| **3717** | Richard Bope (ID: `04-116967 J 04`, Batch: batch_200m2.csv) | BOPE RICHARD (ID: `04-1006095P43`, Batch: batch_mr_magama_names.csv) | Dual Registration |
 | **43** | Benard Chivhako (ID: `71-092982E71`, Batch: batch_3.csv) | Richard Tsingano (ID: `49-060987 J 49`, Batch: batch_4.csv) | **Re-registered** (some records Crossed Out) |
 | **48** | Believe Makwata (ID: `13-2001085P13`, Batch: batch_3.csv) | Knowledge gambiza (ID: `27-221624W22`, Batch: batch_5.csv) | Dual Registration |
-| **6035** | Tambudzayi Gadsi (ID: `63-891403 B 47`, Batch: batch_200m2_8july_2026.csv) | SEAN CHIKWEDZENI (ID: `63-2364655 R 63`, Batch: batch_madzimai.csv) | Dual Registration |
+| **6035** | Tambudzayi Gadsi (ID: `63-891403 B 47`, Batch: batch_200m2_8july_2026.csv) | SEAN CHIKWEDZENI (ID: `63-2364655 R 63`, Batch: batch_madzimai.csv) / GATSI TAMBUDZAYI (ID: `63-891403B47`, Batch: batch_mr_magama_names.csv) | **Multi-Assignment Conflict** (3 occupants) |
 | **6040** | Michael Kubiku (ID: `27-166936 C 27`, Batch: batch_200m2.csv) | TAWANDA MACHAKA (ID: `58-285282 R 23`, Batch: batch_4.csv) | Dual Registration |
 | **6045** | Tynwald Ruvengo (ID: `03-1335731 P 70`, Batch: batch_200m2.csv) | Sabina Chidya (ID: `27-240909H27`, Batch: batch_3.csv) | **Re-registered** (some records Crossed Out) |
 | **6058** | Terence Nhingwani (ID: `63-1567421 B71`, Batch: batch_2.csv) | Maxwell Mutesva (ID: `Missing`, Batch: batch_300m2_7july_2026.csv) | Dual Registration |
@@ -137,11 +157,15 @@ Stands assigned to multiple records or re-registered across batches:
 | **6178** | Patience Chingaro (ID: `44-078974 C 44`, Batch: batch_200m2.csv) | Mervin Kucherera (ID: `63-910479L42`, Batch: batch_300m2.csv) | Dual Registration |
 | **6340** | Memory Chandengenda (ID: `47-233122 Z 47`, Batch: batch_200m2.csv) | Gabriel F Akupangani (ID: `50-067934 R 50`, Batch: batch_4.csv) | Dual Registration |
 | **6372** | Nyarai M Mwanda (ID: `71-080664D71`, Batch: batch_200m2_7july_2026.csv) | Lytan Kumbula (ID: `47-091963D47`, Batch: batch_200m2_7july_2026.csv) | Dual Registration |
+| **6387** | Lincoln Matekenya (ID: `63-991881R63`, Batch: batch_200m2_8july_2026.csv) | MOYO BHUZWANI (ID: `56-20021203X56`, Batch: batch_mr_magama_names.csv) | **Re-registered** (some records Crossed Out) |
 | **6416** | Elvis Sombarashama (ID: `71-113190U71`, Batch: batch_200m2_8july_2026.csv) | ONEKAI GATSI (ID: `45-129479 R 15`, Batch: batch_madzimai.csv) | Dual Registration |
 | **6510** | Pauline Gondo (ID: `63-1251628 S 63`, Batch: batch_200m2_8july_2026.csv) | Pauline Gondo (ID: `63-125162 Y 63`, Batch: batch_sat_work_madzimai.csv) | **Re-registered** (some records Crossed Out) |
 | **6565** | Maidei Mugeva (ID: `63-131976 N85`, Batch: batch_sat_work_madzimai.csv) | Maidei Mugova (ID: `63.131976 N85`, Batch: batch_sat_work_madzimai.csv) | Dual Registration |
+| **665** | CHINOINGIRA TAUYA (ID: `18-073449C18`, Batch: batch_mr_magama_names.csv) | CHINDINGIRA TAUYA (ID: `18-073449C18`, Batch: batch_mr_magama_names.csv) | Dual Registration |
 | **701** | Phillip Seremani (ID: `63-728953 A 80`, Batch: batch_200m2_8july_2026.csv) | Phillip Pauline Seremani (ID: `63-728953 A 80`, Batch: batch_sat_work_madzimai.csv) | **Re-registered** (some records Crossed Out) |
 | **723** | Gertrude Chaitezvi (ID: `63-552322K32`, Batch: batch_200m2_8july_2026.csv) | Joyce Mukonya (ID: `75-490864L75`, Batch: batch_3.csv) | Dual Registration |
+| **746** | Panashe D Mazhero (ID: `63-203840Q25`, Batch: batch_5.csv) | MADZIVIRE JEVASI (ID: `63-167220W26`, Batch: batch_mr_magama_names.csv) | Dual Registration |
+| **765** | Crescencia Tutani (ID: `63-469636 J 25`, Batch: batch_200m2.csv) | MAFAVUKE KETTY (ID: `67-082014G67`, Batch: batch_mr_magama_names.csv) | Dual Registration |
 | **785** | DAVID MURONZA (ID: `71-055309 F 71`, Batch: batch_1.csv) | Constantine Muzanenhamo (ID: `63-1217797 A 77`, Batch: batch_200m2.csv) | Dual Registration |
 | **788** | Richard Magorosi (ID: `Missing`, Batch: batch_3.csv) | Tichaona / Karindi (ID: `63-771918Y49`, Batch: batch_300m2.csv) | Dual Registration |
 | **797** | Lovemore Ndoro (ID: `68-042339 N 68`, Batch: batch_200m2.csv) | Moffat Makaha (ID: `75-189623A75`, Batch: batch_200m2_8july_2026.csv) | Dual Registration |
@@ -149,9 +173,11 @@ Stands assigned to multiple records or re-registered across batches:
 | **823** | Sholcombishi Mangwengwe (ID: `77-054372 T 77`, Batch: batch_200m2.csv) | David Chimudima (ID: `70-284888R70`, Batch: batch_3.csv) | Dual Registration |
 | **90** | Llyod Siclube (ID: `08-874081 P 29`, Batch: batch_1.csv) | Hildah Zakeyo (ID: `37-083931 V 38`, Batch: batch_4.csv) | Dual Registration |
 | **901** | Hopewell Murandu (ID: `24-104574 J 24`, Batch: batch_200m2.csv) | Tendai Terence Mugwagwa (ID: `79-2002756I24`, Batch: batch_200m2_8july_2026.csv) | Dual Registration |
-| **937** | Gibson Chinyopera (ID: `63-1307832P77`, Batch: batch_300m2.csv) | Gibson Chinyopera (ID: `63-1307832P77`, Batch: batch_300m2.csv) | **Exact Duplicate Entry** |
+| **936** | David Sosa (ID: `Missing`, Batch: batch_1.csv) | MAPFUMO VENGAI (ID: `83-104908W83`, Batch: batch_mr_magama_names.csv) | Dual Registration |
+| **937** | Gibson Chinyopera (ID: `63-1307832P77`, Batch: batch_300m2.csv) | Gibson Chinyopera (ID: `63-1307832P77`, Batch: batch_300m2.csv) / CHINYEPERA GIBSON (ID: `63-1307832P77`, Batch: batch_mr_magama_names.csv) | **Multi-Assignment Conflict** (3 occupants) |
 | **952** | Tichaona Madubeko (ID: `77-019611S*77`, Batch: batch_3.csv) | Sibusisiwe & Sibanda / Philip Kadzakata (ID: `29-299459 M 03 / 63-971391 V 63`, Batch: batch_4.csv) | **Re-registered** (some records Crossed Out) |
 | **967** | HEZEKIA HWACHI (ID: `27-091913 F 27`, Batch: batch_200m2_7july_2026.csv) | Willard Dutiro (ID: `32-137233 Z 86`, Batch: batch_4.csv) | Dual Registration |
+| **Kambarami** | Charles Mtoso (ID: `63-833409 P 63`, Batch: batch_300m2_7july_2026.csv) | CHARLES MUZARURWI (ID: `18-054815 Y 18`, Batch: batch_sat_work_kambarami.csv) / LOVEMORE HARA (ID: `86-019970 R 86`, Batch: batch_sat_work_kambarami.csv) | **Multi-Assignment Conflict** (3 occupants) |
 | **New** | Dampton Pona (ID: `63-242047 N 63`, Batch: batch_200m2.csv) | Shamiso Maitenhodze (ID: `24-118110 L 24`, Batch: batch_200m2.csv) / Radson Sibanda (ID: `08-828678 N 03`, Batch: batch_200m2.csv) / Kudakwashe Seremani (ID: `63-157736 4 J 80`, Batch: batch_200m2.csv) / Rudo Samamyanga (ID: `63-1655745Q42`, Batch: batch_200m2_7july_2026.csv) / Shelia Muvami (ID: `07-113761Y07`, Batch: batch_200m2_8july_2026.csv) / Tinotenda Kapuka (ID: `86-2017264L86`, Batch: batch_200m2_8july_2026.csv) / Nyarai Chareka (ID: `49-089913A49`, Batch: batch_200m2_8july_2026.csv) | **Multi-Assignment Conflict** (8 occupants) |
 | **New 105** | Innocent & Dudzai / Sikali & Shava (ID: `63-014640A73 / 03-049506E03`, Batch: batch_200m2_7july_2026.csv) | Dudzai Shava (ID: `03-049506E03`, Batch: batch_200m2_8july_2026.csv) | **Re-registered** (some records Crossed Out) |
 | **New 45** | Chigedzo Taguta (ID: `63-1213589 B 42`, Batch: batch_200m2.csv) | Blessmore Mashama (ID: `61-086957Q61`, Batch: batch_200m2_7july_2026.csv) | Dual Registration |
@@ -164,15 +190,18 @@ Members owning multiple stands or family joint registrations:
 | National ID No | Member Name | Assigned Stands | Notes |
 | :--- | :--- | :--- | :--- |
 | `06-072598Z06` | Mercy Munenge / Ramsey Munenge | Stand Missing (batch_5.csv), Stand Missing (batch_5.csv) | Family Joint / Shared ID Registration |
+| `18-073449C18` | CHINOINGIRA TAUYA / CHINDINGIRA TAUYA | Stand 665 (batch_mr_magama_names.csv), Stand 665 (batch_mr_magama_names.csv) | Family Joint / Shared ID Registration |
 | `25-20003 56 E 25` | Kudakwashe Mapfumo / Kudakwashe Mapfumo | Stand 15 04 (batch_200m2_7july_2026.csv), Stand 1504 (batch_200m2_7july_2026.csv) | **Multi-Stand Owner** or Duplicate Record |
 | `27-201088Z27 / 27-2010558Z27` | Melody Chiwara / Petronella Chiwara | Stand 2235 (batch_3.csv), Stand 33 (batch_3.csv) | Family Joint / Shared ID Registration |
+| `32-228421R61` | SAKWE DENZEL / SAKWE DENZEL | Stand 0 (batch_mr_magama_names.csv), Stand 0 (batch_mr_magama_names.csv) | **Multi-Stand Owner** or Duplicate Record |
 | `34-103771Q34` | Cephas Manyemba / Cephas Manyemba | Stand 2904 (batch_200m2_7july_2026.csv), Stand 2208 (batch_5.csv) | **Multi-Stand Owner** or Duplicate Record |
 | `47-229592 M 47` | Alfred Mutihwana / Alfred Mutihwana | Stand 2798 (batch_300m2_7july_2026.csv), Stand 2798 (batch_300m2_7july_2026.csv) | **Multi-Stand Owner** or Duplicate Record |
 | `63-1046107 F 75` | Morgan Sekai / Sekai Morgan | Stand 1463 (batch_200m2.csv), Stand 1564 (batch_200m2_7july_2026.csv) | Family Joint / Shared ID Registration |
 | `63-1088548M75` | Tanaka Murewa / Tanaka Mrewa | Stand 1181 (batch_200m2_7july_2026.csv), Stand Missing (batch_sat_work_kambarami.csv) | Family Joint / Shared ID Registration |
 | `63-1211882 V 18` | TICHAONA T NOORO / TICHAOMA T NDORO | Stand 922 (batch_200m2_7july_2026.csv), Stand 1339 (batch_200m2_7july_2026.csv) | Family Joint / Shared ID Registration |
 | `63-1280776F77` | Paul & Fungisai Samakanda / Zindonda / Paul & Fungisai Samakanda / Zindonda | Stand 2622 (batch_3.csv), Stand 2623 (batch_3.csv) | **Multi-Stand Owner** or Duplicate Record |
-| `63-1307832P77` | Gibson Chinyopera / Gibson Chinyopera | Stand 937 (batch_300m2.csv), Stand 937 (batch_300m2.csv) | **Multi-Stand Owner** or Duplicate Record |
+| `63-1307832P77` | Gibson Chinyopera / Gibson Chinyopera / CHINYEPERA GIBSON | Stand 937 (batch_300m2.csv), Stand 937 (batch_300m2.csv), Stand 937 (batch_mr_magama_names.csv) | Family Joint / Shared ID Registration |
+| `63-1349407E07` | KAMBARAMI TAFADZWA / KAMBARAMI TAFADZWA / KAMBARAMI TAFADZWA / KAMBARAMI TAFADZWA / Tafadzwa Kambarami | Stand 308 (batch_mr_magama_names.csv), Stand 2832 (batch_mr_magama_names.csv), Stand 2833 (batch_mr_magama_names.csv), Stand 1 (batch_mr_magama_names.csv), Stand Missing (batch_sat_work_kambarami.csv) | Family Joint / Shared ID Registration |
 | `63-1378736 J 63` | Sekai Marizanye / Sekai Marizani | Stand 2911 (batch_300m2.csv), Stand 2911 (batch_300m2.csv) | Family Joint / Shared ID Registration |
 | `63-1419659Q80` | Primrose Machakanja / Primrose Machakanja | Stand uk 3081 (batch_200m2_7july_2026.csv), Stand 3087 (batch_200m2_8july_2026.csv) | **Multi-Stand Owner** or Duplicate Record |
 | `63-1467030F85` | Godknows Godknows / Tirivenhamo / Godknows Tirivenhamo | Stand Missing (batch_5.csv), Stand Missing (batch_5.csv) | Family Joint / Shared ID Registration |
@@ -180,6 +209,8 @@ Members owning multiple stands or family joint registrations:
 | `63-833409 P 63` | Charles Mtoso / Charles Mtoso | Stand Missing (batch_300m2_7july_2026.csv), Stand Kambarami (batch_300m2_7july_2026.csv) | **Multi-Stand Owner** or Duplicate Record |
 | `68-044052 A 68` | Cephas Chuceno / Cephas Chikano | Stand 2787 (batch_200m2_8july_2026.csv), Stand 2787 (batch_300m2_8july_2026.csv) | Family Joint / Shared ID Registration |
 | `83-087537P83` | Elson Tazvitya / Elson Tazvitya | Stand 2698 (batch_5.csv), Stand 2698 (batch_5.csv) | **Multi-Stand Owner** or Duplicate Record |
+| `85-003731J85` | Heighten Chinofura / CHINOFURA HIGHTON | Stand 2694 (batch_200m2_7july_2026.csv), Stand 2694 (batch_mr_magama_names.csv) | Family Joint / Shared ID Registration |
+| `85-026872M85` | TASARA SAYMORE / TASARA SAYMORE | Stand 2612 (batch_mr_magama_names.csv), Stand 2754 (batch_mr_magama_names.csv) | **Multi-Stand Owner** or Duplicate Record |
 
 ---
 
