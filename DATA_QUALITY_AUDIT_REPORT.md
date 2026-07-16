@@ -3,17 +3,17 @@
 ## Executive Summary
 This report summarizes the consolidation, data cleansing, and multi-batch quality audit across all extracted ledger batches.
 
-* **Total Records Analyzed:** 1737
-* **Active Records:** 1435 (82.6%)
-* **Crossed-Out Records:** 137 (7.9%)
-* **Blank Ledger Rows:** 165 (9.5%)
+* **Total Records Analyzed:** 1747
+* **Active Records:** 1445 (82.7%)
+* **Crossed-Out Records:** 137 (7.8%)
+* **Blank Ledger Rows:** 165 (9.4%)
 * **Consolidated Master Dataset:** [`master_vevhu_database.csv`](./master_vevhu_database.csv)
 
 ---
 
 ## 1. Multi-Batch Deduplication Audit
 
-### A. Stand Number Conflicts (165 Instances)
+### A. Stand Number Conflicts (168 Instances)
 Stands assigned to multiple records or re-registered across batches:
 
 | Cleaned Stand No | Primary Record | Secondary / Duplicate Record | Audit Status |
@@ -132,12 +132,15 @@ Stands assigned to multiple records or re-registered across batches:
 | **2832** | Rosemary nyamuba (ID: `50-10760750P`, Batch: batch_300m2.csv) | Rosemary Nyamuba (ID: `50-167607 P 50`, Batch: batch_300m2_8july_2026.csv) / KAMBARAMI TAFADZWA (ID: `63-1349407E07`, Batch: batch_mr_magama_names.csv) | **Multi-Assignment Conflict** (3 occupants) |
 | **2835** | Genicus N Muriritirwo (ID: `63-2796763 S 18`, Batch: batch_2.csv) | Spiwe G MACHINSAUTA (ID: `63-1073217 Y 80`, Batch: batch_300m2_7july_2026.csv) | Dual Registration |
 | **2852** | JELLY NYAMWANDURA (ID: `48-063431 J 48`, Batch: batch_200m2_7july_2026.csv) | Job Grese (ID: `71-147566 K 18`, Batch: batch_300m2_7july_2026.csv) | **Re-registered** (some records Crossed Out) |
+| **2855** | LYOD KATERERA (ID: `34-114843 A 34`, Batch: batch_1.csv) | Whyson Chikwenya (ID: `Missing`, Batch: batch_15july_work.csv) | Dual Registration |
 | **2858** | Joseph Mahlahla (ID: `63-1075967 M 44`, Batch: batch_2.csv) | Muchaneta Muvunde (ID: `63-624791W22`, Batch: batch_3.csv) / Cleopatra Chilcerema (ID: `63-120376 S54`, Batch: batch_300m2_7july_2026.csv) | **Multi-Assignment Conflict** (3 occupants) |
 | **2863** | Riocon Kapand/amurongo (ID: `63-595154 R 63`, Batch: batch_300m2_7july_2026.csv) | MOYO SITHULISIWE (ID: `03-038508A03`, Batch: batch_mr_magama_names.csv) | Dual Registration |
 | **2873** | Wellington Mandaza (ID: `15-152114N15`, Batch: batch_200m2_8july_2026.csv) | JOKONIYA TALENT (ID: `Missing`, Batch: batch_mr_magama_names.csv) | Dual Registration |
+| **2891** | Leah Musengi (ID: `63-913606`, Batch: batch_15july_work.csv) | Addmore Nyamutsahuni (ID: `59-058142G44`, Batch: batch_300m2.csv) | Dual Registration |
 | **2902** | Josphat Chuma (ID: `07-070307Q07`, Batch: batch_200m2_8july_2026.csv) | Josphat Chuma (ID: `07-070307 Q 07`, Batch: batch_300m2_8july_2026.csv) | **Re-registered** (some records Crossed Out) |
 | **2911** | Sekai Marizanye (ID: `63-1378736 J 63`, Batch: batch_300m2.csv) | Sekai Marizani (ID: `63-1378736 J 63`, Batch: batch_300m2.csv) / GWAZE SARUDZAI (ID: `48-082926Z48`, Batch: batch_mr_magama_names.csv) | **Multi-Assignment Conflict** (3 occupants) |
 | **2912** | Willard Mundangowa (ID: `63-766369 V 62`, Batch: batch_200m2.csv) | Tafadzwa (e) Rimayi Tsuangia (ID: `63-1190783 M 58`, Batch: batch_200m2_8july_2026.csv) / TSVANGIRA RIMAYI TAFADZWA (ID: `63-1190783M58`, Batch: batch_mr_magama_names.csv) | **Multi-Assignment Conflict** (3 occupants) |
+| **2915** | Anslem Chinyama (ID: `63-913606 k45`, Batch: batch_15july_work.csv) | Philista K Mujuru (ID: `27-016993 W 18`, Batch: batch_4.csv) | Dual Registration |
 | **2930** | Linet Tsikirayi (ID: `63-1398051 F 27`, Batch: batch_200m2.csv) | Lucky Dube (ID: `63-1186030W13`, Batch: batch_200m2_8july_2026.csv) | Dual Registration |
 | **3002** | Lowencia Duvu (ID: `48-258456 G 58`, Batch: batch_200m2.csv) | Taurai Kupara (ID: `63-1539424 V 42`, Batch: batch_4.csv) | Dual Registration |
 | **3050** | Edson Mugachi (ID: `42-215828 T 42`, Batch: batch_200m2_7july_2026.csv) | Brighton Chamboko (ID: `49-055333N49`, Batch: batch_200m2_7july_2026.csv) | Dual Registration |
