@@ -4,8 +4,8 @@
 This report summarizes the consolidation, data cleansing, and multi-batch quality audit across all extracted ledger batches.
 
 * **Total Records Analyzed:** 3676
-* **Active Records:** 3374 (91.8%)
-* **Crossed-Out Records:** 137 (3.7%)
+* **Active Records:** 3377 (91.9%)
+* **Crossed-Out Records:** 134 (3.6%)
 * **Blank Ledger Rows:** 165 (4.5%)
 * **Consolidated Master Dataset:** [`master_vevhu_database.csv`](./master_vevhu_database.csv)
 
@@ -399,7 +399,7 @@ Stands assigned to multiple records or re-registered across batches:
 | **2610** | Norman Handsen (ID: `45-180149 G 45`, Batch: batch_tablet_300.csv) | Norman Handsen (ID: `45-180149G45`, Batch: batch_tat_300.csv) | **Exact Duplicate Entry** |
 | **2611** | Grace Mutshoko (ID: `63-815389 C 41`, Batch: batch_tablet_300.csv) | Grace Mutshoko (ID: `63-815389 C 41`, Batch: batch_tablet_300.csv) | **Exact Duplicate Entry** |
 | **2612** | TASARA SAYMORE (ID: `85-026872M85`, Batch: batch_mr_magama_names.csv) | Patricia Nyereyemhuka (ID: `47-092246 Y 47`, Batch: batch_tablet_300.csv) / Patricia Nyeremhuka (ID: `47-092246 Y 47`, Batch: batch_tablet_300.csv) / Talent Chipiringi (ID: `01-632044026A18`, Batch: batch_tat_200.csv) | **Multi-Assignment Conflict** (4 occupants) |
-| **2613** | Fred Alice Laderera (ID: `27-152247L27`, Batch: batch_200_first_batch.csv) | Lazarus Jim (ID: `48-160132T48`, Batch: batch_200_first_batch.csv) / Alice Taderera (ID: `27-152247 L27`, Batch: batch_tablet_300.csv) | **Re-registered** (some records Crossed Out) |
+| **2613** | Alice Laderera (ID: `27-152247L27`, Batch: batch_200_first_batch.csv) | Lazarus Jim (ID: `48-160132T48`, Batch: batch_200_first_batch.csv) / Alice Taderera (ID: `27-152247 L27`, Batch: batch_tablet_300.csv) | **Multi-Assignment Conflict** (3 occupants) |
 | **2614** | Lucia Lamunjanja (ID: `29-210804J29`, Batch: batch_300m2.csv) | Chenai Kadzingwindi (ID: `70-054461 C 70`, Batch: batch_tablet_200.csv) / Lucian Munjanja (ID: `29-210804 Y 29`, Batch: batch_tablet_300.csv) / Charles Chibando (ID: `63-725948J63`, Batch: batch_tat_300.csv) | **Re-registered** (some records Crossed Out) |
 | **2617** | nodetails (ID: `Missing`, Batch: batch_tablet_non_standard.csv) | Kalisto Dube (ID: `23-117295T23`, Batch: batch_tat_200.csv) / Kalisto Dube (ID: `23-117295T23`, Batch: batch_tat_200.csv) | **Multi-Assignment Conflict** (3 occupants) |
 | **2618** | Edward Muposha (ID: `Missing`, Batch: batch_tablet_300.csv) | Edward Muposha (ID: `13-190883q13`, Batch: batch_tat_200.csv) / Edward Muposha (ID: `13-190883Q13`, Batch: batch_tat_200.csv) / Edward Muposha (ID: `13-190883Q13`, Batch: batch_tat_200.csv) | **Exact Duplicate Entry** |
@@ -559,7 +559,7 @@ Stands assigned to multiple records or re-registered across batches:
 | **3098** | Alice Maseure (ID: `04-160470 Z 04`, Batch: batch_tablet_200.csv) | Thomas Gwarada (ID: `63-765204 D 18`, Batch: batch_tablet_200.csv) | Dual Registration |
 | **3100** | Tapiwa Baiso (ID: `75-377837 F 75`, Batch: batch_200m2.csv) | Tapiwo Baiso (ID: `75-377837F75`, Batch: batch_300m2.csv) | Dual Registration |
 | **3108** | Moses Zuova (ID: `45-069094V45`, Batch: batch_200_first_batch.csv) | Moses Zvova (ID: `45-069094V45`, Batch: batch_tat_200.csv) | Dual Registration |
-| **3115** | Christinah Ian Chiwashira Ngowafare (ID: `84-015297 Z12`, Batch: batch_200_first_batch.csv) | Locadia Zvinzveku (ID: `43-1953 A12A`, Batch: batch_tat_200.csv) | **Re-registered** (some records Crossed Out) |
+| **3115** | Christinah Chiwashira Ngowafare (ID: `84-015297 Z12`, Batch: batch_200_first_batch.csv) | Locadia Zvinzveku (ID: `43-1953 A12A`, Batch: batch_tat_200.csv) | Dual Registration |
 | **3119** | Alexio Kaingwa (ID: `58-252239v38`, Batch: batch_sat_work_kambarami.csv) | Tarisai Tarusarira (ID: `18-098240 / Z18`, Batch: batch_tat_200.csv) | **Re-registered** (some records Crossed Out) |
 | **3124** | Emelina Musavengana (ID: `63-1430311T24`, Batch: batch_tat_200.csv) | Emelina Musavengana (ID: `63-14303112A`, Batch: batch_tat_200.csv) | **Exact Duplicate Entry** |
 | **3130** | Matiotoma (ID: `63-209588 L34`, Batch: batch_tat_200.csv) | Martin Mandioma (ID: `63-204588L34`, Batch: batch_tat_200.csv) | Dual Registration |
