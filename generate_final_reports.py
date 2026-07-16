@@ -99,6 +99,19 @@ def is_valid_national_id(id_val):
     # Standard National ID: 11-111111X11 -> clean has 10 or 11 characters (digits + letter + digits)
     return bool(re.match(r'^\d{8,10}[A-Z]\d{2}$', clean))
 
+# Helper function to identify missing/placeholder names
+def is_missing_name(name):
+    if not name:
+        return True
+    n = str(name).strip().lower()
+    n = re.sub(r'\s+', ' ', n)
+    if n in ['', 'no details', 'nodetails', 'nodeals', 'no details.', 'nil', 'none', 'no information', 'no name', 'no occupant', 'unoccupied', 'no cabin']:
+        return True
+    # check for patterns like "no details 1234"
+    if re.match(r'^(no details|nodetails|no occupant|unoccupied)\s*\d*$', n):
+        return True
+    return False
+
 # Read master records
 active_records = []
 all_records = []
@@ -255,9 +268,11 @@ for r in active_records:
 # 4. No Names
 no_name_rows = []
 for r in active_records:
-    if not r['Name & Surname'] and (r['Stand No'] or r['Cell No']):
+    name_val = r['Name & Surname']
+    if is_missing_name(name_val) and (r['Stand No'] or r['Cell No']):
+        display_name = name_val if name_val else '[No Name Captured]'
         no_name_rows.append([
-            r['Stand No'], '[No Name Captured]', r['ID No'], r['Cell No'],
+            r['Stand No'], display_name, r['ID No'], r['Cell No'],
             r['Comments'], r['Batch Source'], r['Row Index']
         ])
 
