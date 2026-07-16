@@ -161,7 +161,7 @@ format_sheet(ws_master, master_headers, master_rows)
 # Sort batches so sheets are added in order
 for b_key in sorted(records_by_batch.keys()):
     # Sheet name max length in Excel is 31 characters
-    sheet_name = b_key.replace('batch_', '')[:31]
+    sheet_name = b_key.replace('batch_', '').replace('_', ' ')[:31]
     ws = wb.create_sheet(title=sheet_name)
     
     batch_headers = ['File Name', 'Stand No', 'Name & Surname', 'ID No', 'Cell No', 'Compliance Yes', 'Compliance No', 'Comments']
